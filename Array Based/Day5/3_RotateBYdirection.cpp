@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+void reverse(vector<int>&arr,int i,int j)
+{
+    while(i<j){
+        swap(arr[i],arr[j]);
+        i++;
+        j--;
+    }
+}
+void rotate(vector<int>&arr,int k){
+    int n = arr.size();
+    if(k>n) k = k % n; 
+    reverse(arr,0,n-k-1);
+    reverse(arr,n-k,n-1);
+    reverse(arr,0,n-1);
+    return ;
+}
+void rotatebydirection(vector<int>&arr,int k,string direction){
+    int n = arr.size();
+    if(k>n) k = k % n;
+    if(direction=="right"){
+       rotate(arr,k);
+    }
+    else{
+        rotate(arr,n-(k%n));
+    }
+
+    return ;
+}
+int main(){
+    string s;
+    getline(cin,s);
+    if(s.front()=='[' && s.back()==']'){
+        s = s.substr(1,s.length()-2);
+    }
+    stringstream ss(s);
+    vector<int>arr;
+    string temp;
+    while(getline(ss,temp,' ')){
+        int num = stoi(temp);
+        arr.push_back(num);
+    }
+    int k ;
+    cin>>k;
+    string direction ;
+    cin>>direction;
+    rotatebydirection(arr,k,direction);
+    for(int x:arr){
+        cout<<x<<" ";
+    }
+}
