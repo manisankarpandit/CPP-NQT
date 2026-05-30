@@ -8,6 +8,16 @@ bool isVowels(char ch){
 int main(){
     string s;
     getline(cin,s);
+    // if(s.front()=='[' && s.back()==']'){
+    //     s = s.substr(1,s.size()-2);
+    // }
+    // stringstream ss(s);
+    // string temp;
+    // vector<string>v;
+    // while(getline(ss,temp,' ')){
+    //     v.push_back(temp);
+    // }
+
     int vowels = 0;
     int consonants = 0;
     int space  = 0;
