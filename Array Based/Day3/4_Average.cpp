@@ -19,7 +19,7 @@ int main(){
     vector<int>arr;
     stringstream ss(s);
     string temp;
-    while(getline(ss,temp,' ')){
+    while(getline(ss,temp,',')){
         int num = stoi(temp);
         arr.push_back(num);
     }
